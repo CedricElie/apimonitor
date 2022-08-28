@@ -6,19 +6,21 @@ import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-sites = ["http://www.google.com","http://www.twitter.com","https://www.youtube.com"]
+sites = ["http://www.google.com","http://www.twitter.com","https://www.afrilanxxfirstbank.com"]
 
 for item in sites:
-
-    r = requests.get(item,verify=False)
-    rcode = r.status_code
     try:
+        r = requests.get(item, verify=False, timeout=1)
+        rcode = r.status_code
         if rcode == 200:
             print( item + ": API is up")
         else:
             print(item + ": API is down")
-    except requests.exceptions.ConnectionError as err:
-        print(item + ": Down connection error")
-    except requests.exceptions.ConnectTimeout as e:
-        raise SystemExit(e)
+    except requests.exceptions.ConnectionError as conn:
+        print(item + ": Is unreachable or down")
+    except requests.exceptions.ConnectTimeout as timeout:
+        raise SystemExit(timeout)
         print(item + ": Down timeout")
+    except requests.exceptions.ReadTimeout as readout:
+        raise SystemExit(readout)
+        print(item + ": Read timeout")
