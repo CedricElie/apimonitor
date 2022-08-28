@@ -6,7 +6,7 @@ import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-sites = ["http://www.google.com","http://www.twitter.com","https://ebanking.afrilandfirstbank.com/particuliers/index.ebk"]
+sites = ["http://www.google.com","http://www.twitter.com","https://www.youtube.com"]
 
 for item in sites:
 
