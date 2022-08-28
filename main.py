@@ -6,7 +6,7 @@ import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-sites = ["http://www.google.com","http://www.twitter.com","https://www.afrilanxxfirstbank.com"]
+sites = ["http://www.google.com","http://www.twitter.com","https://192.168.11.11"]
 
 for item in sites:
     try:
@@ -22,5 +22,5 @@ for item in sites:
         raise SystemExit(timeout)
         print(item + ": Down timeout")
     except requests.exceptions.ReadTimeout as readout:
-        raise SystemExit(readout)
-        print(item + ": Read timeout")
+        #raise SystemExit(readout)
+        print(item + ": Read timeout, host is unreachable")
