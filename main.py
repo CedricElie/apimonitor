@@ -1,3 +1,7 @@
+# Creating this code I wanted something real quick to test http url reacheability
+# Written by: @CedricElie, on Sun 28 Aug 2022
+# Feel free to update it
+
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
